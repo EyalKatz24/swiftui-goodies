@@ -10,7 +10,7 @@ import SwiftUI
 struct Shimmer<S: Shape>: View {
     @State private var animating = false
     var shape: S
-    var foregroundColor: Color = .secondary.opacity(0.2)
+    var foregroundColor: Color = .primary.opacity(0.2)
     var shimmerColor: Color = .white.opacity(0.5)
     
     var body: some View {
