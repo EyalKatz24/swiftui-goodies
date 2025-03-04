@@ -37,6 +37,7 @@ fileprivate struct TopAndBottomFadeOut: ViewModifier {
 }
 
 extension View {
+    
     func topAndBottomFadeOut(fadingColor: Color = .init(uiColor: .systemBackground), gradientHeight: CGFloat) -> some View {
         modifier(TopAndBottomFadeOut(fadingColor: fadingColor, gradientHeight: gradientHeight))
     }
