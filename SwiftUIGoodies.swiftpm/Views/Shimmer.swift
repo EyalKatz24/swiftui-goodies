@@ -46,6 +46,17 @@ struct Shimmer<S: Shape>: View {
 }
 
 #Preview {
-    Shimmer(shape: .capsule)
-        .frame(width: 150, height: 20)
+    VStack(spacing: 30) {
+        Shimmer(shape: .circle)
+            .frame(width: 100, height: 100)
+        
+        Shimmer(shape: .ellipse)
+            .frame(width: 150, height: 75)
+        
+        Shimmer(shape: .capsule)
+            .frame(width: 150, height: 30)
+        
+        Shimmer(shape: .rect(cornerRadius: 10))
+            .frame(width: 150, height: 50)
+    }
 }
