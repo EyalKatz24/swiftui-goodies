@@ -62,3 +62,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 .DS_Store
 SwiftUIGoodies.swiftpm/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+SwiftUIGoodies.swiftpm/.swiftpm/xcode/xcshareddata/xcschemes/SwiftUIGoodies.xcscheme
