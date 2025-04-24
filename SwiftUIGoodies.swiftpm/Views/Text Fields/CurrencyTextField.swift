@@ -34,14 +34,16 @@ struct CurrencyTextField: View {
     
     @FocusState private var isFocused: Bool
     @Binding var amount: Double
+    @Binding var cleatText: Bool
     var placeholder: String = "Amount"
     var style: Style
     
     @State private var attributedAmount: AttributedString
     @State private var stringAmount: String = "0"
     
-    init(amount: Binding<Double>, placeholder: String = "Amount", style: Style = .default) {
+    init(amount: Binding<Double>, clearText: Binding<Bool> = .constant(false), placeholder: String = "Amount", style: Style = .default) {
         self._amount = amount
+        self._cleatText = clearText
         self.placeholder = placeholder
         self.style = style
         self.attributedAmount = .init()
@@ -80,6 +82,12 @@ struct CurrencyTextField: View {
                 onNewCharacter(oldValue: stringAmount, newValue: newValue)
             } else {
                 onDeleteCharacter(oldValue: stringAmount, newValue: newValue)
+            }
+        }
+        .onChange(of: cleatText) { newValue in
+            if newValue {
+                clear()
+                cleatText = false
             }
         }
         .animation(.bouncy(duration: 0.22), value: attributedAmount)
@@ -140,7 +148,7 @@ struct CurrencyTextField: View {
     
     private func clear() {
         amount = 0
-        attributedAmount = .init()
+        attributedAmount = attributedAmount(0)
         stringAmount = "0"
     }
     
